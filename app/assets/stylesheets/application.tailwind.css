@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .text-field {
+    @apply {
+      block
+      shadow
+      rounded-md
+      border
+      border-gray-400
+      outline-none
+      px-3
+      py-2
+      mt-2
+      w-full
+    }
+  }
+}
+
 /*
 
 @layer components {
