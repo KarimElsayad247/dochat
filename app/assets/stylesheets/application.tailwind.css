@@ -4,7 +4,7 @@
 
 @layer components {
   .text-field {
-    @apply {
+    @apply
       block
       shadow
       rounded-md
@@ -15,7 +15,10 @@
       py-2
       mt-2
       w-full
-    }
+  }
+
+  .btn-primary {
+    @apply rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer
   }
 }
 
