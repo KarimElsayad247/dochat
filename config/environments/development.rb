@@ -72,4 +72,7 @@ Rails.application.configure do
 
   # Tailwind wouldn't load wihtout this config
   config.assets.debug = true
+
+  # Disable file fingerprinting
+  config.assets.digest = false
 end
