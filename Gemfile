@@ -64,6 +64,16 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  gem "guard"
+  gem "guard-livereload"
+
+  gem "better_errors"
+  gem "binding_of_caller"
+
+  gem "erb_lint", require: false
+  gem "better_html", require: false
+  gem "erb-formatter"
 end
 
 group :test do
