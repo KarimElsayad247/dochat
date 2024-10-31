@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+
+  * {
+    font-family: "Montserrat";
+  }
+}
+
 @layer components {
+  h1 {
+    @apply font-bold text-4xl;
+  }
   .text-field {
-    @apply
-      block
+    @apply block
       shadow
       rounded-md
       border
@@ -13,21 +22,41 @@
       outline-none
       px-3
       py-2
-      mt-2
       w-full
+      transition-colors;
+  }
+
+  .form-field {
+    @apply flex items-center gap-2;
   }
 
   .btn-primary {
-    @apply rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer
+    @apply rounded-lg
+      py-2
+      px-6
+      bg-blue-100
+      text-[#1d3b9b]
+      inline-block
+      font-medium
+      cursor-pointer
+      transition-colors;
+
+    transition-duration: 200ms;
+
+    &:hover {
+      @apply bg-blue-600 text-white;
+    }
+  }
+
+  .flash {
+    @apply py-2 px-3 mb-5 font-medium rounded-lg inline-block;
+
+    &.notice {
+      @apply bg-green-50 text-green-500;
+    }
+
+    &.alert {
+      @apply bg-red-50 text-red-500;
+    }
   }
 }
-
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
-}
-
-*/
