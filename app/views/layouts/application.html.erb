@@ -23,8 +23,25 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <nav>
+      <div class="menu-button">
+        <input type='checkbox' id='menubuttoninput'>
+        <label for='menubuttoninput'>
+          <p>Menu</p>
+        </label>
+      </div>
+    </nav>
+    <div class="flex flex-col justify-center items-center mt-2">
+      <% if notice = flash[:notice] %>
+        <p class="flash notice" id="notice"><%= notice %></p>
+      <% end %>
+      <% if alert = flash[:alert] %>
+        <p class="flash alert" id="alert"><%= alert %></p>
+      <% end %>
+    </div>
+    <main class="container mx-auto mt-14 px-5 flex justify-center">
       <%= yield %>
     </main>
   </body>
 </html>
+-

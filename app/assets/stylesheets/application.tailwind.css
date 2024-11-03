@@ -2,20 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@import "./navbar.tailwind.css";
 
+@layer base {
+  body {
+    @apply bg-slate-100;
+  }
+  nav {
+    background-color: green;
+  }
   * {
     font-family: "Montserrat";
   }
-}
 
-@layer components {
   h1 {
     @apply font-bold text-4xl;
   }
-  .text-field {
+
+  h2 {
+    @apply font-bold text-3xl;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
     @apply block
-      shadow
       rounded-md
       border
       border-gray-400
@@ -25,13 +36,21 @@
       w-full
       transition-colors;
   }
+}
 
-  .form-field {
-    @apply flex items-center gap-2;
+@layer utilities {
+  .border-card {
+    @apply border-gray-300 border-solid border-2;
+  }
+}
+
+@layer components {
+  .container-card {
+    @apply p-6 rounded-lg bg-white;
   }
 
   .btn-primary {
-    @apply rounded-lg
+    @apply rounded-md
       py-2
       px-6
       bg-blue-100
@@ -44,19 +63,33 @@
     transition-duration: 200ms;
 
     &:hover {
-      @apply bg-blue-600 text-white;
+      @apply bg-blue-500 text-white;
     }
   }
 
   .flash {
-    @apply py-2 px-3 mb-5 font-medium rounded-lg inline-block;
+    @apply py-2
+    px-3
+    mb-5
+    border-2
+    font-medium
+    rounded-lg
+    block
+    w-fit
+    min-w-[30%]
+    text-center;
 
     &.notice {
-      @apply bg-green-50 text-green-500;
+      @apply bg-green-50
+      text-green-600
+      border-green-500;
     }
 
     &.alert {
-      @apply bg-red-50 text-red-500;
+      @apply bg-red-50
+      text-red-600
+      border-red-400;
     }
   }
 }
+

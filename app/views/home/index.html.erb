@@ -1,0 +1,24 @@
+<div class="container-card border-card">
+  <p>Signed as
+    <%= Current.user.email %>
+  </p>
+
+  <h2>Login and verification</h2>
+
+  <ul>
+    <li>
+      <%= link_to "Change password", edit_password_path %>
+    </li>
+    <li>
+      <%= link_to "Change email address", edit_identity_email_path %>
+    </li>
+  </ul>
+  <ul>
+    <h2>Access history</h2>
+    <li>
+      <%= link_to "Devices & Sessions", sessions_path %>
+    </li>
+  </ul>
+
+  <%= button_to "Log out", Current.session, method: :delete %>
+</div>

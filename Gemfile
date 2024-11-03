@@ -81,3 +81,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "authentication-zero", "~> 4.0"
