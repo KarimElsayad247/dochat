@@ -7,4 +7,4 @@
 @import "tailwindcss/components";
 @import "./components.tailwind.css";
 
-@import "./header.tailwind.css";
+@import "./layout.tailwind.css"

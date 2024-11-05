@@ -1,0 +1,32 @@
+header {
+  @apply bg-blue-900 text-white px-1;
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  height: var(--header-height);
+}
+
+.main-split {
+  display: flex;
+  position: fixed;
+  top: var(--header-height);
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.super-sidebar {
+  @apply transition-all bg-blue-900 text-white;
+  display: flex;
+  width: 14rem;
+  height: auto;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+}
+
+main {
+  @apply container px-5 flex flex-col;
+  justify-content: start;
+}

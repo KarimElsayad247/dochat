@@ -24,11 +24,11 @@
   </head>
 
   <body>
-    <%= render "shared/header" %>
+    <%= render "layouts/header" %>
     <div class="main-split">
-
-      <main class="container mx-auto mt-14 px-5 flex justify-center">
-        <%= render "shared/flash" %>
+      <%= render "layouts/sidebar" %>
+      <main>
+        <%= render "layouts/flash" %>
         <%= yield %>
       </main>
     </div>
