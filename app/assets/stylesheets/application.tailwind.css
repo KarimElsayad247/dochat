@@ -1,95 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "./base.tailwind.css";
 
-@import "./navbar.tailwind.css";
+@import "tailwindcss/utilities";
+@import "./utilities.tailwind.css";
 
-@layer base {
-  body {
-    @apply bg-slate-100;
-  }
-  nav {
-    background-color: green;
-  }
-  * {
-    font-family: "Montserrat";
-  }
+@import "tailwindcss/components";
+@import "./components.tailwind.css";
 
-  h1 {
-    @apply font-bold text-4xl;
-  }
-
-  h2 {
-    @apply font-bold text-3xl;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    @apply block
-      rounded-md
-      border
-      border-gray-400
-      outline-none
-      px-3
-      py-2
-      w-full
-      transition-colors;
-  }
-}
-
-@layer utilities {
-  .border-card {
-    @apply border-gray-300 border-solid border-2;
-  }
-}
-
-@layer components {
-  .container-card {
-    @apply p-6 rounded-lg bg-white;
-  }
-
-  .btn-primary {
-    @apply rounded-md
-      py-2
-      px-6
-      bg-blue-100
-      text-[#1d3b9b]
-      inline-block
-      font-medium
-      cursor-pointer
-      transition-colors;
-
-    transition-duration: 200ms;
-
-    &:hover {
-      @apply bg-blue-500 text-white;
-    }
-  }
-
-  .flash {
-    @apply py-2
-    px-3
-    mb-5
-    border-2
-    font-medium
-    rounded-lg
-    block
-    w-fit
-    min-w-[30%]
-    text-center;
-
-    &.notice {
-      @apply bg-green-50
-      text-green-600
-      border-green-500;
-    }
-
-    &.alert {
-      @apply bg-red-50
-      text-red-600
-      border-red-400;
-    }
-  }
-}
-
+@import "./header.tailwind.css";
