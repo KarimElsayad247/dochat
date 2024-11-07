@@ -3,11 +3,12 @@
 }
 
 header {
-  @apply bg-blue-900 text-white px-1;
+  @apply text-white px-1;
   display: flex;
   width: 100%;
   gap: 1rem;
   height: var(--header-height);
+  background-color: var(--theme-main-color);
 }
 
 .main-split {
@@ -20,10 +21,11 @@ header {
 }
 
 .super-sidebar {
-  @apply transition-all bg-blue-900 text-white;
+  @apply transition-all text-white;
   padding-left: 0.25rem;
   padding-right: 0.5rem;
   transition-duration: var(--sidebar-animation-duration);
+  background-color: var(--theme-main-color);
   display: flex;
   flex-direction: column;
   align-items: start;
