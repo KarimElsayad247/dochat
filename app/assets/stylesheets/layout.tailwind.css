@@ -1,5 +1,5 @@
 :root {
-  --sidebar-animation-duration: 300ms;
+  --sidebar-animation-duration: 200ms;
 }
 
 header {
@@ -43,21 +43,28 @@ header {
   .sidebar-element > a > .icon-button {
     @apply px-1 py-2 flex items-center w-full;
     padding-left: 0.5rem;
+    transition: padding var(--sidebar-animation-duration) ease-out;
+  }
+
+  .sidebar-element > a > .icon-button > p {
+    opacity: 1;
+    transition: opacity var(--sidebar-animation-duration) ease-out;
   }
 
   .sidebar-element > a > .icon-button > svg {
     width: 1.5rem;
     min-width: 1.5rem;
     max-height: 2rem;
+    transition: all var(--sidebar-animation-duration) ease-out;
   }
 
   &[data-expanded="false"] {
     padding-right: 0;
-    width: 3rem;
+    width: 3.3rem;
 
     /* Hide text when sidebar is collapsed,
      * only showing icons */
-    li > a > .icon-button > p {
+    .sidebar-element > a > .icon-button > p {
       display: none;
     }
     .sidebar-element {
@@ -68,8 +75,8 @@ header {
     }
 
     .sidebar-element > a > .icon-button > svg {
-      width: 100%;
-      min-width: 100%;
+      width: 2rem;
+      min-width: 2rem;
     }
   }
 }
