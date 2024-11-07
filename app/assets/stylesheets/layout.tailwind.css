@@ -1,3 +1,7 @@
+:root {
+  --sidebar-animation-duration: 300ms;
+}
+
 header {
   @apply bg-blue-900 text-white px-1;
   display: flex;
@@ -16,9 +20,10 @@ header {
 }
 
 .super-sidebar {
-  @apply transition-all bg-blue-900 text-white px-1;
+  @apply transition-all bg-blue-900 text-white;
+  padding-left: 0.25rem;
   padding-right: 0.5rem;
-  transition: 300ms;
+  transition-duration: var(--sidebar-animation-duration);
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -43,13 +48,18 @@ header {
   .sidebar-element > a > .icon-button > svg {
     width: 1.5rem;
     min-width: 1.5rem;
+    max-height: 2rem;
   }
 
   &[data-expanded="false"] {
-    width: 3.5rem;
+    padding-right: 0;
+    width: 3rem;
 
     /* Hide text when sidebar is collapsed,
      * only showing icons */
+    li > a > .icon-button > p {
+      display: none;
+    }
     .sidebar-element {
       @apply w-fit;
     }
@@ -58,18 +68,14 @@ header {
     }
 
     .sidebar-element > a > .icon-button > svg {
-      width: 2rem;
-      min-width: 2rem;
-    }
-
-    li > a > .icon-button > p {
-      display: none;
+      width: 100%;
+      min-width: 100%;
     }
   }
 }
 
 main {
-  @apply container px-5 flex flex-col;
+  @apply px-5 flex flex-col w-full bg-slate-50 rounded-tl-md;
   justify-content: start;
   overflow-y: scrautooll;
 }
