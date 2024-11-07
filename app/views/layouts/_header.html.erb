@@ -1,4 +1,5 @@
-<header data-turbo-permanent>
+<header
+  data-turbo-permanent class="flex justify-between">
   <div class="menu-button py-[5px]">
     <button
       id="toggle-sidebar-button"
@@ -10,5 +11,10 @@
     >
       <%= inline_svg_tag "bars.svg", class: "h-full" %>
     </button>
+  </div>
+  <div class="justify-self-end self-center">
+    <% if Current.user %>
+      <%= Current.user.email %>
+    <% end %>
   </div>
 </header>
