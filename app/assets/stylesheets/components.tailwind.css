@@ -1,6 +1,14 @@
 .icon-button {
   @apply transition-colors bg-transparent rounded-md;
   transition-duration: 150ms;
+
+  &.dark:hover {
+    @apply bg-white bg-opacity-10;
+  }
+
+  &.light {
+    @apply hover:bg-black hover:bg-opacity-20;
+  }
 }
 
 .container-card {

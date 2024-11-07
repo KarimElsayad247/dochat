@@ -4,11 +4,11 @@
       id="toggle-sidebar-button"
       title="sidebar toggle"
       type="button"
-      class="
-        icon-button px-1 py-[4px] h-full hover:bg-white hover:bg-opacity-20
-      "
+      class="icon-button dark px-1 py-[4px] h-full"
+      data-controller="sidebar"
+      data-action="click->sidebar#toggle"
     >
-      <%= inline_svg_tag "arrow-rect.svg", class: "h-full" %>
+      <%= inline_svg_tag "bars.svg", class: "h-full" %>
     </button>
   </div>
 </header>

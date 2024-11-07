@@ -1,0 +1,22 @@
+<nav id="super-sidebar" class="super-sidebar" data-expanded="false">
+  <ul class="w-full">
+    <%= render partial: "layouts/sidebar/sidebar_element",
+    locals: {
+      icon: "chat",
+      text: "Chat",
+      path: root_path,
+    } %>
+    <%= render partial: "layouts/sidebar/sidebar_element",
+    locals: {
+      icon: "chat",
+      text: "Forum",
+      path: root_path,
+    } %>
+    <%= render partial: "layouts/sidebar/sidebar_element",
+    locals: {
+      icon: "chat",
+      text: "Documentation",
+      path: root_path,
+    } %>
+  </ul>
+</nav>

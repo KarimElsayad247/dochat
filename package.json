@@ -3,6 +3,8 @@
   "type": "module",
   "packageManager": "pnpm@9.12.0",
   "devDependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.12",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.9",
@@ -16,9 +18,11 @@
     "path": "^0.12.7",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
+    "stimulus-vite-helpers": "^3.1.0",
     "tailwindcss": "^3.4.14",
     "vite": "^5.4.10",
     "vite-plugin-rails": "^0.5.0",
-    "vite-plugin-ruby": "^5.1.0"
+    "vite-plugin-ruby": "^5.1.0",
+    "vite-plugin-stimulus-hmr": "^3.0.0"
   }
 }

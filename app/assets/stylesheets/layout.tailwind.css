@@ -16,17 +16,60 @@ header {
 }
 
 .super-sidebar {
-  @apply transition-all bg-blue-900 text-white;
+  @apply transition-all bg-blue-900 text-white px-1;
+  padding-right: 0.5rem;
+  transition: 300ms;
   display: flex;
-  width: 14rem;
+  flex-direction: column;
+  align-items: start;
   height: auto;
   position: relative;
   top: 0px;
   left: 0px;
   bottom: 0px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 16rem;
+
+  .sidebar-element {
+    @apply w-full mt-2;
+  }
+
+  .sidebar-element > a > .icon-button {
+    @apply px-1 py-2 flex items-center w-full;
+    padding-left: 0.5rem;
+  }
+
+  .sidebar-element > a > .icon-button > svg {
+    width: 1.5rem;
+    min-width: 1.5rem;
+  }
+
+  &[data-expanded="false"] {
+    width: 3.5rem;
+
+    /* Hide text when sidebar is collapsed,
+     * only showing icons */
+    .sidebar-element {
+      @apply w-fit;
+    }
+    .sidebar-element > a > .icon-button {
+      @apply px-1 py-1;
+    }
+
+    .sidebar-element > a > .icon-button > svg {
+      width: 2rem;
+      min-width: 2rem;
+    }
+
+    li > a > .icon-button > p {
+      display: none;
+    }
+  }
 }
 
 main {
   @apply container px-5 flex flex-col;
   justify-content: start;
+  overflow-y: scrautooll;
 }

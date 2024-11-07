@@ -30,4 +30,8 @@ input[type="password"] {
     py-2
     w-full
     transition-colors;
+
+  &:hover {
+    @apply outline-4 outline-blue-400 outline;
+  }
 }
