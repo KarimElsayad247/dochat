@@ -3,7 +3,7 @@
 }
 
 header {
-  @apply text-white px-1;
+  @apply text-white pl-1 pr-2;
   display: flex;
   width: 100%;
   gap: 1rem;
@@ -21,9 +21,7 @@ header {
 }
 
 .super-sidebar {
-  @apply transition-all text-white;
-  padding-left: 0.25rem;
-  padding-right: 0.5rem;
+  @apply transition-all text-white pl-1 pr-2;
   transition-duration: var(--sidebar-animation-duration);
   background-color: var(--theme-main-color);
   display: flex;
@@ -43,8 +41,7 @@ header {
   }
 
   .sidebar-element > a > .icon-button {
-    @apply px-1 py-2 flex items-center w-full;
-    padding-left: 0.5rem;
+    @apply pl-2 pr-1 py-2 flex items-center w-full;
     transition: padding var(--sidebar-animation-duration) ease-out;
   }
 
