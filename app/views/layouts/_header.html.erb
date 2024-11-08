@@ -14,7 +14,9 @@
   </div>
   <div class="justify-self-end self-center">
     <% if Current.user %>
-      <%= Current.user.email %>
+      <%= link_to Current.user.email,
+      identity_account_path,
+      class: "icon-button dark px-4 py-2" %>
     <% end %>
   </div>
 </header>

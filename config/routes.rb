@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :email,              only: [ :edit, :update ]
     resource :email_verification, only: [ :show, :create ]
     resource :password_reset,     only: [ :new, :edit, :create, :update ]
+    resource :account,            only: [ :show ], controller: "account"
   end
   get "chats", to: "chats#index"
   get "forums", to: "forums#index"
