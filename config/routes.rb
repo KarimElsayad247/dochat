@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resource :email_verification, only: [ :show, :create ]
     resource :password_reset,     only: [ :new, :edit, :create, :update ]
   end
+  get "chats", to: "chats#index"
+  get "forums", to: "forums#index"
+  get "docs", to: "docs#index"
+
   root "home#index"
   resource :session
   resources :passwords, param: :token
