@@ -82,6 +82,8 @@ group :development do
   gem "erb_lint", require: false
   gem "better_html", require: false
   gem "erb-formatter"
+
+  gem "annotate"
 end
 
 group :test do
