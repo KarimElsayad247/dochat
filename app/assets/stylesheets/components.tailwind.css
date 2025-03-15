@@ -1,5 +1,5 @@
 .icon-button {
-  @apply transition-colors bg-transparent rounded-md;
+  @apply transition-colors bg-transparent rounded-md cursor-pointer;
   transition-duration: 150ms;
 
   &.dark:hover {

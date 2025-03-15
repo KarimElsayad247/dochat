@@ -70,7 +70,7 @@ header {
       @apply w-fit;
     }
     .sidebar-element > a > .icon-button {
-      @apply px-1 py-1;
+      @apply px-1;
     }
 
     .sidebar-element > a > .icon-button > svg {
