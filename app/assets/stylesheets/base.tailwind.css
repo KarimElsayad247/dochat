@@ -1,6 +1,6 @@
 :root {
   --header-height: 3rem;
-  --theme-main-color: theme(colors.blue.900);
+  --theme-main-color: var(--color-blue-900);
   font-size: 20px;
 }
 
@@ -26,7 +26,7 @@ input[type="password"] {
     rounded-md
     border
     border-gray-400
-    outline-none
+    outline-hidden
     px-3
     py-2
     w-full

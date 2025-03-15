@@ -3,11 +3,11 @@
   transition-duration: 150ms;
 
   &.dark:hover {
-    @apply bg-white bg-opacity-10;
+    @apply bg-white/10;
   }
 
   &.light {
-    @apply hover:bg-black hover:bg-opacity-20;
+    @apply hover:bg-black/20;
   }
 }
 
