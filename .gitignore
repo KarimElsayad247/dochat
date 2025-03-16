@@ -6,6 +6,7 @@
 
 # IDE files
 /.vscode
+/.idea
 
 # Ignore bundler config.
 /.bundle
