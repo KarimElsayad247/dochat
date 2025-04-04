@@ -77,7 +77,7 @@ group :development do
   gem "better_html", require: false
   gem "erb-formatter"
 
-  gem "annotate"
+  gem "annotaterb"
 
   gem "guard"
   gem "guard-livereload"
