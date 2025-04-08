@@ -392,8 +392,6 @@ GEM
     sorbet (0.5.11987)
       sorbet-static (= 0.5.11987)
     sorbet-runtime (0.5.11987)
-    sorbet-static (0.5.11987-aarch64-linux)
-    sorbet-static (0.5.11987-universal-darwin)
     sorbet-static (0.5.11987-x86_64-linux)
     sorbet-static-and-runtime (0.5.11987)
       sorbet (= 0.5.11987)
@@ -506,6 +504,7 @@ DEPENDENCIES
   solid_queue
   sorbet
   sorbet-runtime
+  spoom
   stimulus-rails
   tapioca
   thruster

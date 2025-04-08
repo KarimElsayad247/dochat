@@ -1,0 +1,7 @@
+class ApplicationController
+  private
+
+  def authenticate: -> untyped
+
+  def set_current_request_details: -> untyped
+end
