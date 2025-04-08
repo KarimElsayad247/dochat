@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get "forums", to: "forums#index"
   get "docs", to: "docs#index"
 
+  post "/chats/send", to: "chats#send_message"
+
   root "home#index"
   resource :session
   resources :passwords, param: :token

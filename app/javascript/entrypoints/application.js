@@ -27,8 +27,8 @@ import "@hotwired/turbo-rails";
 // import ActiveStorage from '@rails/activestorage'
 // ActiveStorage.start()
 //
-// // Import all channels.
-// const channels = import.meta.globEager('./**/*_channel.js')
+// Import all channels.
+const channels = import.meta.glob('../channels/*_channel.js', {eager: true})
 
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'

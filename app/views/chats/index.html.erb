@@ -1,1 +1,15 @@
 <h1>Chat</h1>
+
+<section data-chat-room='Best Room'>
+  <h2>Messages</h2>
+</section>
+
+<section>
+  <%= form_with url: "/chats/send", method: :post do |form| %>
+    <div class="flex flex-col">
+      <%= form.label :new_message, "New Message" %>
+      <%= form.textarea :new_message, size: "70x5" %>
+      <%= form.submit "Send", class: "btn-primary" %>
+    </div>
+  <% end %>
+</section>

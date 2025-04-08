@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@rails/actioncable':
+        specifier: ^8.0.200
+        version: 8.0.200
     devDependencies:
       '@hotwired/stimulus':
         specifier: ^3.2.2
@@ -299,6 +303,9 @@ packages:
 
   '@rails/actioncable@7.2.201':
     resolution: {integrity: sha512-wsTdWoZ5EfG5k3t7ORdyQF0ZmDEgN4aVPCanHAiNEwCROqibSZMXXmCbH7IDJUVri4FOeAVwwbPINI7HVHPKBw==}
+
+  '@rails/actioncable@8.0.200':
+    resolution: {integrity: sha512-EDqWyxck22BHmv1e+mD8Kl6GmtNkhEPdRfGFT7kvsv1yoXd9iYrqHDVAaR8bKmU/syC5eEZ2I5aWWxtB73ukMw==}
 
   '@rollup/rollup-android-arm-eabi@4.35.0':
     resolution: {integrity: sha512-uYQ2WfPaqz5QtVgMxfN6NpLD+no0MYHDBywl7itPYd3K5TjjSghNKmX8ic9S8NU8w81NVhJv/XojcHptRly7qQ==}
@@ -1233,6 +1240,8 @@ snapshots:
   '@pkgr/core@0.1.1': {}
 
   '@rails/actioncable@7.2.201': {}
+
+  '@rails/actioncable@8.0.200': {}
 
   '@rollup/rollup-android-arm-eabi@4.35.0':
     optional: true
