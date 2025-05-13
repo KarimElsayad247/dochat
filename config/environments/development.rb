@@ -75,4 +75,8 @@ Rails.application.configure do
 
   # Disable file fingerprinting
   config.assets.digest = false
+
+  # config.logger = MyLogger.new(STDOUT)
+
+  config.autoload_paths << Rails.root.join("lib", "hmr")
 end

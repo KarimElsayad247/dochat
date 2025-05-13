@@ -83,8 +83,7 @@ group :development do
 
   gem "annotaterb"
 
-  gem "guard"
-  gem "guard-livereload"
+  gem "listen"
 end
 
 group :test do
