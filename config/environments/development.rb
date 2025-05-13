@@ -1,4 +1,21 @@
-require "active_support/core_ext/integer/time"
+# require "active_support/core_ext/integer/time"
+#
+# class MyLogger < ActiveSupport::Logger
+#   def initialize(*args, **kwargs)
+#     super
+#     @formatter = DebuggingFormatter.new
+#   end
+#
+#
+#   class DebuggingFormatter < ::Logger::Formatter
+#     # This method is invoked when a log event occurs
+#     def call(severity, timestamp, progname, msg)
+#       binding.irb if msg.strip.starts_with? "Rendered layout layout"
+#       "[DEBUGGING FORMATTER] #{String === msg ? msg : msg.inspect}\n"
+#     end
+#   end
+# end
+
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
