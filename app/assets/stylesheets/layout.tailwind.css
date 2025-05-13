@@ -81,7 +81,8 @@ header {
 }
 
 main {
-  @apply px-5 flex flex-col w-full bg-slate-50 rounded-tl-md;
+  @apply px-5 flex flex-col w-full bg-slate-50 rounded-tl-md
+  dark:bg-slate-900 dark:text-gray-200;
   justify-content: start;
-  overflow-y: scrautooll;
+  overflow-y: auto;
 }

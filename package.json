@@ -25,6 +25,7 @@
     "vite-plugin-stimulus-hmr": "^3.0.0"
   },
   "dependencies": {
+    "@avo-hq/marksmith": "^0.4.4",
     "@rails/actioncable": "^8.0.200"
   }
 }

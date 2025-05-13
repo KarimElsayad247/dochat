@@ -33,6 +33,10 @@
   }
 }
 
+input, textarea{
+  @apply dark:bg-slate-800;
+}
+
 .flash {
   @apply py-2
     px-3

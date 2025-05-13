@@ -1,12 +1,41 @@
 :root {
   --header-height: 3rem;
-  --theme-main-color: var(--color-blue-900);
+  --theme-main: var(--color-blue-900);
+  --primary-bg: #000;
+  --secondary-bg: #000;
   font-size: 20px;
+
+  [data-theme='sapphire'] {
+    --theme-main: var(--color-blue-900);
+  }
+
+  [data-theme='leaf-light'] {
+    --theme-main: #709b79;
+    --primary-bg: #DFE2DC;
+    --secondary-bg: #E6E9E1;
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+*,
+::after,
+::before,
+::backdrop,
+::file-selector-button {
+  border-color: var(--color-gray-200, currentColor);
 }
 
 body {
-  @apply bg-slate-100;
+  @apply bg-(--primary-bg);
 }
+
 * {
   font-family: "Montserrat";
 }
