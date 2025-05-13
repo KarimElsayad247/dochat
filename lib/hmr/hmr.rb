@@ -17,10 +17,20 @@ class Hmr
   end
 
   def process_modifications(modified_files)
+    relevant_files_found = false
     modified_files.each do |filename|
       if relevant?(filename)
-        puts "Processing Relevant Modified file #{filename}"
+        puts "Found Relevant Modified file #{filename}"
+        relevant_files_found = true
       end
+    end
+
+    if relevant_files_found
+      rendered_html = ApplicationController.render(
+        template: @cacher.template,
+        assigns: @cacher.template_locals
+      )
+      p rendered_html
     end
   end
 
