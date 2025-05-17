@@ -20,8 +20,15 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%= vite_client_tag %>
-    <%= vite_stylesheet_tag "application", data: { "turbo-track": "reload" } %>
+    <%= vite_stylesheet_tag "application" %>
     <%= vite_javascript_tag "application" %>
+
+    <script>
+      // Prevent Firefox FOUC (flash of unstyled content)
+      // See https://stackoverflow.com/a/64158043
+      let FF_FOUC_FIX;
+    </script>
+
   </head>
 
   <body data-theme="leaf-light" class="bg-(--theme-main)">
