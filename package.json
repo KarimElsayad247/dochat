@@ -9,23 +9,25 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/line-clamp": "^0.4.4",
-    "@tailwindcss/postcss": "^4.0.14",
+    "@tailwindcss/postcss": "^4.1.6",
     "@tailwindcss/typography": "^0.5.16",
     "eslint": "^9.22.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.3",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
     "path": "^0.12.7",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
     "stimulus-vite-helpers": "^3.1.0",
-    "tailwindcss": "^4.0.14",
-    "vite": "^5.4.14",
-    "vite-plugin-rails": "^0.5.0",
+    "tailwindcss": "^4.1.6",
+    "vite": "npm:rolldown-vite@latest",
     "vite-plugin-ruby": "^5.1.1",
     "vite-plugin-stimulus-hmr": "^3.0.0"
   },
   "dependencies": {
-    "@avo-hq/marksmith": "^0.4.4",
+    "@avo-hq/marksmith": "^0.4.5",
     "@rails/actioncable": "^8.0.200"
   }
 }
