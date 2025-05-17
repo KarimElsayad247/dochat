@@ -11,7 +11,6 @@ import "@hotwired/turbo-rails";
 import { importChannels } from "~/hmr/channel_hmr.js";
 
 // Import all channels.
-const channels = import.meta.glob('../channels/*_channel.js', {eager: true})
 const channels = importChannels(
   import.meta.glob("../channels/*_channel.js", {
     eager: true,
