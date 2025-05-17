@@ -3,32 +3,33 @@
 //
 //    <%= vite_client_tag %>
 //    <%= vite_javascript_tag 'application' %>
+
 console.log("Vite ⚡️ Rails");
-
-// If using a TypeScript entrypoint file:
-//     <%= vite_typescript_tag 'application' %>
-//
-// If you want to use .jsx or .tsx, add the extension:
-//     <%= vite_javascript_tag 'application.jsx' %>
-
-console.log(
-  "Visit the guide for more information: ",
-  "https://vite-ruby.netlify.app/guide/rails"
-);
 
 import "../controllers";
 import "@hotwired/turbo-rails";
+import { importChannels } from "~/hmr/channel_hmr.js";
 
-// Example: Load Rails libraries in Vite.
-//
-// import * as Turbo from '@hotwired/turbo'
-// Turbo.start()
-//
-// import ActiveStorage from '@rails/activestorage'
-// ActiveStorage.start()
-//
 // Import all channels.
 const channels = import.meta.glob('../channels/*_channel.js', {eager: true})
+const channels = importChannels(
+  import.meta.glob("../channels/*_channel.js", {
+    eager: true,
+  }),
+);
+
 
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'
+if (import.meta.hot) {
+  import.meta.hot.accept((newModule) => {
+    console.log("Hot Reloading application.js");
+  });
+
+  import.meta.hot.dispose((data) => {
+    console.log("Dispose called on data", data);
+    channels.forEach((channel) => {
+      channel.teardown();
+    });
+  });
+}

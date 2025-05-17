@@ -1,27 +1,34 @@
 import consumer from "./consumer";
+import { wrapChannel } from "~/hmr/channel_hmr.js";
 
-console.log("subscribing")
+const createSubscription = () => {
+  console.log("setting up chat subscription");
 
-consumer.subscriptions.create(
-  { channel: "ChatChannel", room: "Best Room" },
-  {
-    received(data) {
-      this.appendLine(data);
-    },
+  return consumer.subscriptions.create(
+    { channel: "ChatChannel", room: "Best Room" },
+    {
+      received(data) {
+        this.appendLine(data);
+      },
 
-    appendLine(data) {
-      const chatMessage = this.createLine(data);
-      const chatContainer = document.querySelector("[data-chat-room='Best Room']");
-      chatContainer.insertAdjacentHTML("beforeend", chatMessage)
-    },
+      appendLine(data) {
+        const chatMessage = this.createLine(data);
+        const chatContainer = document.querySelector(
+          "[data-chat-room='Best Room']",
+        );
+        chatContainer.insertAdjacentHTML("beforeend", chatMessage);
+      },
 
-    createLine(data) {
-      return `
+      createLine(data) {
+        return `
       <article class="chat-line">
         <span class="speaker">${data["sent_by"]}</span>
         <span class="body">${data["body"]}</span>
       </article>
     `;
+      },
     },
-  }
-);
+  );
+};
+
+export default wrapChannel(createSubscription);

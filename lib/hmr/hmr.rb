@@ -3,6 +3,8 @@
 puts "Loading HMR Class"
 
 class Hmr
+  CHANNEL_NAME = "rails_hmr"
+
   def initialize
     @cacher = RenderingCacher.new
 
@@ -30,8 +32,15 @@ class Hmr
         template: @cacher.template,
         assigns: @cacher.template_locals
       )
-      p rendered_html
+      send_update_to_client(rendered_html)
     end
+  end
+
+  def send_update_to_client(new_html)
+    puts new_html
+    ActionCable.server.broadcast CHANNEL_NAME, {
+      html: new_html
+    }
   end
 
   def process_deletions(deleted_files)
