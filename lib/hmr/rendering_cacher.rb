@@ -3,11 +3,13 @@ class RenderingCacher
   #       "identifier": "/home/user/project/app/views/home/index.html.erb",
   #       "layout": "layouts/application",
   #       "locals": {}
-  attr_reader :payloads, :transaction_id
+  attr_reader :payloads, :transaction_id, :session_info, :controller, :env
 
   def initialize
+    init_class_attributes
     clear_payloads_on_new_request
     remember_rendering_payloads
+    remember_request_info
   end
 
   def payload_contains?(filename)
@@ -33,12 +35,54 @@ class RenderingCacher
 
 private
 
+  def init_class_attributes
+    @template = nil
+    @transaction_id = ""
+    @payloads = []
+    @session_info = {}
+    @controller = {}
+    @env = {}
+  end
+
   def clear_payloads_on_new_request
     ActiveSupport::Notifications.subscribe("start_processing.action_controller") do
       @template = nil
       @transaction_id = ""
       @payloads = []
       @request_cycle_active = true
+    end
+  end
+
+  def remember_request_info
+    remember_session_info
+    remember_controller_info
+    remember_request_env
+  end
+
+  def remember_session_info
+    ActiveSupport::Notifications.subscribe("request.action_dispatch") do |event|
+      @session_info = {
+        session_id: event.payload[:request].session[:session_id],
+        _csrf_token: event.payload[:request].session[:_csrf_token]
+      }
+    end
+  end
+
+  def remember_controller_info
+    ActiveSupport::Notifications.subscribe("process_action.action_controller") do |event|
+      @controller = {
+        name: event.payload[:controller],
+        action: event.payload[:action]
+      }
+    end
+  end
+
+  def remember_request_env
+    ActiveSupport::Notifications.subscribe("process_action.action_controller") do |event|
+      @env = event.payload[:request]
+                  .env
+                  .except("action_controller.instance",
+                          "action_dispatch.routes")
     end
   end
 
@@ -69,6 +113,7 @@ private
   def subscribe_to_everything
     ActiveSupport::Notifications.subscribe(/.*/) do |event|
       puts "Received event: #{event.name}"
+      puts event.payload
     end
   end
 
@@ -81,7 +126,10 @@ private
   def attrs_as_object
     {
       transaction_id: @transaction_id,
-      payloads: @payloads
+      payloads: @payloads,
+      session_info: @session_info,
+      controller: @controller,
+      env: @env
     }
   end
 end
