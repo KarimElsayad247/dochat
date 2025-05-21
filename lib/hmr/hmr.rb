@@ -28,25 +28,33 @@ class Hmr
     end
 
     if relevant_files_found
-      env_for_request = @cacher.env
-      request = ActionDispatch::Request.new(env_for_request)
-      controller = @cacher.controller[:name].constantize
-      request.routes = controller._routes
-
-      instance = controller.new
-      instance.set_request! request
-      instance.set_response! controller.make_response!(request)
-      instance.authenticate
-      instance.set_current_request_details
-
-      rendered_html = instance.lookup_context.disable_cache do
-        instance.render_to_string(
-            template: @cacher.template,
-            assigns: @cacher.template_locals
-          )
-      end
-      send_update_to_client(rendered_html)
+      send_update_to_client(render_to_string)
     end
+  end
+
+  def render_to_string
+    instance = rebuild_application_controller
+    instance.lookup_context.disable_cache do
+      instance.render_to_string(
+        template: @cacher.template,
+        assigns: @cacher.template_locals
+      )
+    end
+  end
+
+  def rebuild_application_controller
+    env_for_request = @cacher.env
+    request = ActionDispatch::Request.new(env_for_request)
+    controller = @cacher.controller[:name].constantize
+    request.routes = controller._routes
+
+    instance = controller.new
+    instance.set_request! request
+    instance.set_response! controller.make_response!(request)
+    instance.authenticate
+    instance.set_current_request_details
+
+    instance
   end
 
   def send_update_to_client(new_html)
