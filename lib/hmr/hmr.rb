@@ -50,7 +50,6 @@ class Hmr
   end
 
   def send_update_to_client(new_html)
-    puts new_html
     ActionCable.server.broadcast CHANNEL_NAME, {
       html: new_html
     }

@@ -14,5 +14,6 @@ export const handleHmr = (html) => {
   const newObj = nodeToObj(newDocument.body, options);
 
   const diff = dd.diff(oldObj, newObj);
+  dd.apply(document.body, diff);
   console.log(diff);
 };
