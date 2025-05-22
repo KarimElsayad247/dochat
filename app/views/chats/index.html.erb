@@ -1,15 +1,33 @@
 <h1>Chat</h1>
 
-<section data-chat-room='Best Room'>
-  <h2>Messages</h2>
-</section>
+<div class="h-full flex flex-col mb-2">
+  <section data-chat-room='Best Room'
+           class="grow h-full">
+    <ul id="messages-list">
 
-<section>
-  <%= form_with url: "/chats/send", method: :post do |form| %>
-    <div class="flex flex-col">
-      <%= form.label :new_message, "New Message" %>
-      <%= form.marksmith :new_message %>
-      <%= form.submit "Send", class: "btn-primary" %>
-    </div>
-  <% end %>
-</section>
+    </ul>
+  </section>
+
+  <section>
+    <%= form_with url: "/chats/send", method: :post do |form| %>
+      <div class="flex flex-col">
+        <%= form.label :new_message, "New Message", class: "sr-only" %>
+        <div class="relative flex">
+          <%= form.textarea :new_message, rows: "1",
+                            class: "w-full grow rounded-md ml-2 bg-slate-50
+                            text-sm border-gray-400 resize-none" %>
+          <div class="flex">
+            <%= form.button "Send", class: "" do %>
+              <%= inline_svg_tag "send.svg",
+                                 class: "icon-button inline-block h-8 w-8
+                                 text-(--theme-main) p-2 rounded-full mx-1
+                                 hover:bg-(--theme-main) hover:text-white"
+              %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </section>
+
+</div>

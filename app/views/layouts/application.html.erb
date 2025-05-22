@@ -8,8 +8,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "marksmith" %>
-
     <%= yield :head %>
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
@@ -31,7 +29,7 @@
 
   </head>
 
-  <body data-turbo-prefetch="false" data-theme="leaf-light" class="bg-(--theme-main)">
+  <body data-turbo-prefetch="false" data-theme="sapphire" class="bg-(--theme-main)">
     <%= render "layouts/header" %>
     <div class="main-split">
       <%= render "layouts/sidebar/sidebar" %>

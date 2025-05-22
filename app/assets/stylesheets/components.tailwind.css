@@ -61,3 +61,13 @@ input, textarea{
       border-red-400;
   }
 }
+
+ul#messages-list {
+  .chat-line {
+    @apply px-2;
+
+    &:hover {
+      @apply bg-slate-200 rounded-md;
+    }
+  }
+}

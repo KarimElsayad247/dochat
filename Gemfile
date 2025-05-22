@@ -53,8 +53,6 @@ gem "vite_rails"
 
 gem "inline_svg"
 
-gem "marksmith", "~> 0.4.4"
-
 gem "commonmarker", "~> 2.3"
 
 group :development, :test do

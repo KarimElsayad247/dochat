@@ -5,7 +5,7 @@ class ChatsController < ApplicationController
   def send_message
     ActionCable.server.broadcast "chat_Best Room", {
       sent_by: Current.user.username,
-      body: Marksmith::Renderer.new(body: params[:new_message]).render
+      body: Commonmarker.to_html(params[:new_message])
     }
   end
 

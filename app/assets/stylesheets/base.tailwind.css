@@ -3,7 +3,7 @@
   --theme-main: var(--color-blue-900);
   --primary-bg: #000;
   --secondary-bg: #000;
-  font-size: 20px;
+  font-size: 18px;
 
   [data-theme='sapphire'] {
     --theme-main: var(--color-blue-900);

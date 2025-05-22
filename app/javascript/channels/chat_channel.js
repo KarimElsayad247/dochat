@@ -14,7 +14,7 @@ export default () => {
         const chatMessage = this.createLine(data);
         const chatContainer = document.querySelector(
           "[data-chat-room='Best Room']",
-        );
+        ).querySelector("#messages-list");
         chatContainer.insertAdjacentHTML("beforeend", chatMessage);
       },
 
