@@ -9,11 +9,7 @@ export const handleHmr = (html) => {
     valueDiffing: false,
   };
   const dd = new DiffDOM(options);
-
-  const oldObj = nodeToObj(document.body, options);
-  const newObj = nodeToObj(newDocument.body, options);
-
-  const diff = dd.diff(oldObj, newObj);
+  const diff = dd.diff(document.body, newDocument.body);
   dd.apply(document.body, diff);
   console.log(diff);
 };
