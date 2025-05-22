@@ -1,4 +1,4 @@
-export const wrapChannel = (createSubscription) => {
+const wrapChannel = (createSubscription) => {
   let subscription;
 
   const setup = () => {
@@ -6,7 +6,7 @@ export const wrapChannel = (createSubscription) => {
   };
 
   const teardown = () => {
-    console.log("Removing subscription ", subscription);
+    console.debug("Removing subscription ", subscription);
     subscription.unsubscribe();
   };
 
@@ -16,10 +16,10 @@ export const wrapChannel = (createSubscription) => {
   };
 };
 
-export const importChannels = (channelExports) => {
+export const hmrImportChannels = (channelExports) => {
   const channelKeys = Reflect.ownKeys(channelExports);
   const channels = channelKeys.map((key) => {
-    return channelExports[key].default;
+    return wrapChannel(channelExports[key].default);
   });
 
   channels.forEach((channel) => {

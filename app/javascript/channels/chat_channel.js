@@ -1,7 +1,6 @@
 import consumer from "./consumer";
-import { wrapChannel } from "~/hmr/channel_hmr.js";
 
-const createSubscription = () => {
+export default () => {
   console.log("setting up chat subscription");
 
   return consumer.subscriptions.create(
@@ -30,5 +29,3 @@ const createSubscription = () => {
     },
   );
 };
-
-export default wrapChannel(createSubscription);

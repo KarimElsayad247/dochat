@@ -8,21 +8,19 @@ console.log("Vite ⚡️ Rails");
 
 import "../controllers";
 import "@hotwired/turbo-rails";
-import { importChannels } from "~/hmr/channel_hmr.js";
+import { hmrImportChannels } from "~/hmr/channel_hmr.js";
 
 // Import all channels.
-const channels = importChannels(
+const channels = hmrImportChannels(
   import.meta.glob("../channels/*_channel.js", {
     eager: true,
   }),
 );
 
 
-// Example: Import a stylesheet in app/frontend/index.css
-// import '~/index.css'
 if (import.meta.hot) {
   import.meta.hot.accept((newModule) => {
-    console.log("Hot Reloading application.js");
+    console.log(`ActionCableHmr: Performing HMR`);
   });
 
   import.meta.hot.dispose((data) => {
