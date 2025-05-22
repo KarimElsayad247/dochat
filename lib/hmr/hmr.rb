@@ -23,11 +23,13 @@ class Hmr
     modified_files.each do |filename|
       if relevant?(filename)
         puts "Found Relevant Modified file #{filename}"
+        FileUtils.touch(Rails.root.join("app", "javascript", "entrypoints", "application.css"))
         relevant_files_found = true
       end
     end
 
     if relevant_files_found
+      sleep 0.1
       send_update_to_client(render_to_string)
     end
   end
