@@ -1,3 +1,5 @@
+# Watches requests and records necessary info required to render
+# an identical-looking template later.
 class RenderingCacher
   # Example Payload:
   #       "identifier": "/home/user/project/app/views/home/index.html.erb",
@@ -19,12 +21,15 @@ class RenderingCacher
   end
 
   def template
+    # Example
     # [ "home", "user", "project", "app", "views", "home", "index.html.erb"]
     template_path = @template[:identifier].split("/")
 
+    # Example
     # "index.html.erb" -> "index"
     template_file_name = template_path[-1].split(".").first
 
+    # Example
     # "home/index"
     "#{template_path[-2]}/#{template_file_name}"
   end
@@ -79,10 +84,7 @@ private
 
   def remember_request_env
     ActiveSupport::Notifications.subscribe("process_action.action_controller") do |event|
-      @env = event.payload[:request]
-                  .env
-                  .except("action_controller.instance",
-                          "action_dispatch.routes")
+      @env = event.payload[:request].env
     end
   end
 

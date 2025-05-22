@@ -5,8 +5,23 @@ puts "Loading HMR Class"
 class Hmr
   CHANNEL_NAME = "rails_hmr"
 
+  # Time to wait before sending rendered HTML to the client.
+  # Defaults to 0.1 (100ms).
+  #
+  # When Vite is compiling CSS files, there can be a brief moment
+  # where an HTML Element will have Tailwind class that's not included
+  # in the bundle previously served to the browser, during which the element
+  # will appear as though the class was removed, and when the updated
+  # css reaches the browser through HMR, the element will get the desired style.
+  #
+  # This results in what feels like a flash of unstyled content,
+  # which is jarring. Having a delay helps smooth this bump.
+  attr_accessor :delay
+
   def initialize
     @cacher = RenderingCacher.new
+    @before_render = nil
+    @delay = 0.1
 
     listener = Listen.to("#{Rails.root}/app/views") do |modified, _added, removed|
       puts "modified #{modified}"
@@ -17,6 +32,15 @@ class Hmr
     listener.start
     puts "Listening for View changes"
   end
+
+  # Actions to perform after instantiating a controller instance,
+  # and right before rendering HTML. the controller instance is
+  # passed to the block.
+  def before_render(&block)
+    @before_render = block
+  end
+
+  private
 
   def process_modifications(modified_files)
     relevant_files_found = false
@@ -29,7 +53,7 @@ class Hmr
     end
 
     if relevant_files_found
-      sleep 0.1
+      sleep @delay
       send_update_to_client(render_to_string)
     end
   end
@@ -53,8 +77,8 @@ class Hmr
     instance = controller.new
     instance.set_request! request
     instance.set_response! controller.make_response!(request)
-    instance.authenticate
-    instance.set_current_request_details
+
+    @before_render.call(instance) if  @before_render.present?
 
     instance
   end
