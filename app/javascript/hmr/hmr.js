@@ -1,4 +1,4 @@
-import { DiffDOM, nodeToObj } from "diff-dom";
+import { DiffDOM } from "diff-dom";
 
 export const handleHmr = (html) => {
   const newDocument = new DOMParser().parseFromString(html, "text/html");
@@ -11,5 +11,4 @@ export const handleHmr = (html) => {
   const dd = new DiffDOM(options);
   const diff = dd.diff(document.body, newDocument.body);
   dd.apply(document.body, diff);
-  console.log(diff);
 };
