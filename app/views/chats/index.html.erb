@@ -9,18 +9,23 @@
   </section>
 
   <section>
-    <%= form_with url: "/chats/send", method: :post do |form| %>
+    <%= form_with url: "/chats/send", method: :post,
+                  data: { controller: "message-box",
+                          action: "turbo:submit-end->message-box#clearInput",
+                          message_box_target: "form" },
+                  id: "message-form" do |form| %>
       <div class="flex flex-col">
         <%= form.label :new_message, "New Message", class: "sr-only" %>
         <div class="relative flex">
-          <%= form.textarea :new_message, rows: "1",
-                            class: "w-full grow rounded-md ml-2 bg-slate-50
+          <%= form.textarea :new_message, rows: "1", data: { message_box_target: "input" },
+                            class: "w-full grow rounded-md ml-2 bg-slate-50 text-gray-700
                             text-sm border-gray-400 resize-none" %>
           <div class="flex">
-            <%= form.button "Send", class: "" do %>
+            <%= form.button "Send", data: { message_box_target: "send" } do %>
               <%= inline_svg_tag "send.svg",
                                  class: "icon-button inline-block h-8 w-8
                                  text-(--theme-main) p-2 rounded-full mx-1
+                                 dark:text-white
                                  hover:bg-(--theme-main) hover:text-white"
               %>
             <% end %>

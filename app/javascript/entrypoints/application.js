@@ -9,6 +9,11 @@ console.log("Vite ⚡️ Rails");
 import "../controllers";
 import "@hotwired/turbo-rails";
 import { hmrImportChannels } from "~/hmr/channel_hmr.js";
+import ShortcutsManager from "@/shortcuts/shortcuts_manager.js";
+
+const shortcutsManager = ShortcutsManager();
+shortcutsManager.setup();
+window.shortcutsManager = shortcutsManager;
 
 // Import all channels.
 const channels = hmrImportChannels(
@@ -16,7 +21,6 @@ const channels = hmrImportChannels(
     eager: true,
   }),
 );
-
 
 if (import.meta.hot) {
   import.meta.hot.accept((newModule) => {
@@ -28,5 +32,8 @@ if (import.meta.hot) {
     channels.forEach((channel) => {
       channel.teardown();
     });
+
+    window.shortcutsManager.dispose();
+    window.shortcutsManager = null;
   });
 }
