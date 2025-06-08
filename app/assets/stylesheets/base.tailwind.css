@@ -50,7 +50,8 @@ h2 {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+textarea {
   @apply block
     rounded-md
     border

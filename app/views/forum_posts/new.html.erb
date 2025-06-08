@@ -1,0 +1,19 @@
+<h1 class="text-2xl">New Post</h1>
+
+<%= form_with model: @forum_post do |form| %>
+  <div class="p-4">
+    <div>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
+      <%= form.label :body, "Content" %>
+      <%= form.text_area :body, rows: 5 %>
+    </div>
+
+    <div class="flex justify-end">
+      <%= form.submit "Create Post", class: "btn-primary" %>
+    </div>
+  </div>
+<% end %>

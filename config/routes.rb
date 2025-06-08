@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
-  get  "sign_in", to: "sessions#new"
+  get "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"
-  get  "sign_up", to: "registrations#new"
+  get "sign_up", to: "registrations#new"
   post "sign_up", to: "registrations#create"
   resources :sessions, only: [ :index, :show, :destroy ]
-  resource  :password, only: [ :edit, :update ]
+  resource :password, only: [ :edit, :update ]
   namespace :identity do
-    resource :email,              only: [ :edit, :update ]
+    resource :email, only: [ :edit, :update ]
     resource :email_verification, only: [ :show, :create ]
-    resource :password_reset,     only: [ :new, :edit, :create, :update ]
-    resource :account,            only: [ :show ], controller: "account"
+    resource :password_reset, only: [ :new, :edit, :create, :update ]
+    resource :account, only: [ :show ], controller: "account"
   end
   get "chats", to: "chats#index"
-  get "forums", to: "forums#index"
   get "docs", to: "docs#index"
-
+  resources "forum_posts", only: [ :index, :new, :create ]
   post "/chats/send", to: "chats#send_message"
 
   root "home#index"
