@@ -77,9 +77,24 @@ private
     ActiveSupport::Notifications.subscribe("process_action.action_controller") do |event|
       @controller = {
         name: event.payload[:controller],
-        action: event.payload[:action]
+        action: event.payload[:action],
+        instance_variables: marshalled_instance_variables_for_controller(event.payload)
       }
     end
+  end
+
+  def marshalled_instance_variables_for_controller(payload)
+    controller = payload[:request].env["action_controller.instance"]
+    non_private_instance_variables = controller.instance_variable_names.filter do |var|
+      !var.starts_with?("@_")
+    end
+
+    {
+      instance_variable_names: non_private_instance_variables,
+      marshalled_variables: non_private_instance_variables.map do |var|
+        Marshal.dump(controller.instance_variable_get(var))
+      end
+    }
   end
 
   def remember_request_env

@@ -40,7 +40,7 @@ class Hmr
     @before_render = block
   end
 
-  private
+private
 
   def process_modifications(modified_files)
     relevant_files_found = false
@@ -78,7 +78,13 @@ class Hmr
     instance.set_request! request
     instance.set_response! controller.make_response!(request)
 
-    @before_render.call(instance) if  @before_render.present?
+    recorded_instance_variables = @cacher.controller[:instance_variables]
+    recorded_instance_variables[:instance_variable_names].each_with_index do |var_name, index|
+      unmarshalled_object = Marshal.load(recorded_instance_variables[:marshalled_variables][index])
+      instance.instance_variable_set(var_name, unmarshalled_object)
+    end
+
+    @before_render.call(instance) if @before_render.present?
 
     instance
   end
