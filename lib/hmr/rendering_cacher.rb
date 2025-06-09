@@ -7,7 +7,9 @@ class RenderingCacher
   #       "locals": {}
   attr_reader :payloads, :transaction_id, :session_info, :controller, :env
 
-  def initialize
+  def initialize(opts = {})
+    @persist_to_disk = opts[:persist_to_disk] || false
+
     init_class_attributes
     clear_payloads_on_new_request
     remember_rendering_payloads
@@ -121,7 +123,7 @@ private
       if @request_cycle_active
         @payloads << event.payload
         @transaction_id = event.transaction_id
-        persist_to_disk
+        persist_to_disk if @persist_to_disk
         @request_cycle_active = false
       end
     end

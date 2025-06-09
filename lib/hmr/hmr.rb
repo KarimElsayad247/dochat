@@ -18,8 +18,16 @@ class Hmr
   # which is jarring. Having a delay helps smooth this bump.
   attr_accessor :delay
 
-  def initialize
-    @cacher = RenderingCacher.new
+  # `opts` is the Options hash for the HMR instance. So far, it can only
+  # contain :cacher_opts, which is a hash of options to pass to the
+  # RenderingCacher instance. :cacher_opts takes:
+  #   - persist_to_disk: boolean, defaults to false. If true, the cacher
+  #     will attempt to write cached information to disk. Useful for debugging.
+  #     This procedure may result in an error because the information contains
+  #     marshalled objects, which contain ASCII-8 data, resulting in a JSON
+  #     generation error: JSON::GeneratorError ("\xA6" from ASCII-8BIT to UTF-8)
+  def initialize(opts = {})
+    @cacher = RenderingCacher.new(opts[:cacher_opts])
     @before_render = nil
     @delay = 0.1
 
