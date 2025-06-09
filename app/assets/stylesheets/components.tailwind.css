@@ -19,8 +19,8 @@
   @apply rounded-md
       py-2
       px-6
-      bg-blue-100
-      text-[#1d3b9b]
+      bg-(--btn-bg) dark:bg-(--theme-main)
+      text-(--theme-main) dark:text-(--btn-bg)
       inline-block
       font-medium
       cursor-pointer
@@ -29,7 +29,9 @@
   transition-duration: 200ms;
 
   &:hover {
-    @apply bg-blue-500 text-white;
+    @apply
+      bg-(--theme-main) dark:bg-(--btn-bg)
+     text-white dark:text-(--theme-main);
   }
 }
 

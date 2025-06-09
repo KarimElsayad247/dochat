@@ -2,12 +2,12 @@
   font-family: "Montserrat";
   font-style: normal;
   font-display: swap;
-  src: url('Montserrat/Montserrat-VariableFont_wght.ttf') format("truetype");
+  src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format("truetype");
 }
 
 @font-face {
   font-family: "Montserrat";
   font-style: italic;
   font-display: swap;
-  src: url('Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format("truetype");
+  src: url('../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format("truetype");
 }

@@ -3,16 +3,21 @@
   --theme-main: var(--color-blue-900);
   --primary-bg: #000;
   --secondary-bg: #000;
+  --btn-bg: #000;
   font-size: 18px;
 
   [data-theme='sapphire'] {
     --theme-main: var(--color-blue-900);
+    --primary-bg: #DFE2DC;
+    --secondary-bg: #E6E9E1;
+    --btn-bg: var(--color-blue-100);
   }
 
   [data-theme='leaf-light'] {
     --theme-main: #709b79;
     --primary-bg: #DFE2DC;
     --secondary-bg: #E6E9E1;
+    --btn-bg: var(--color-green-100);
   }
 }
 
@@ -37,7 +42,7 @@ body {
 }
 
 * {
-  font-family: "Montserrat";
+  font-family: "Montserrat", Inconsolata, monospace;
 }
 
 h1 {
@@ -46,23 +51,4 @@ h1 {
 
 h2 {
   @apply font-bold text-3xl;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea {
-  @apply block
-    rounded-md
-    border
-    border-gray-400
-    outline-hidden
-    px-3
-    py-2
-    w-full
-    transition-colors;
-
-  &:hover {
-    @apply outline-4 outline-blue-400 outline;
-  }
 }

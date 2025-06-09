@@ -18,7 +18,7 @@
         <%= form.label :new_message, "New Message", class: "sr-only" %>
         <div class="relative flex">
           <%= form.textarea :new_message, rows: "1", data: { message_box_target: "input" },
-                            class: "w-full grow rounded-md ml-2 bg-slate-50 text-gray-700
+                            class: "w-full grow ml-2 bg-slate-50 text-gray-700
                             text-sm border-gray-400 resize-none" %>
           <div class="flex">
             <%= form.button "Send", data: { message_box_target: "send" } do %>

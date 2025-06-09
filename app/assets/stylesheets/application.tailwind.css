@@ -2,6 +2,7 @@
 @import './base.tailwind.css' layer(base);
 @import './utilities.tailwind.css' layer(utilities);
 @import './components.tailwind.css' layer(components);
+@import './montserrat.css';
 
 @import './layout.tailwind.css' layer(components);
 
@@ -13,6 +14,27 @@
 @source '../../views/**/*';
 
 @theme {
-    --font-sans: Inter var, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji',  'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: Montserrat, Inter var, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* I wish I could put this in `base` but for some reason,
+stuff I put in base was overridden by stuff from tailwind itself */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  @apply block
+  rounded-md
+  border
+  border-gray-400
+  outline-hidden
+  px-3
+  py-2
+  w-full
+  transition-colors;
+
+  &:hover {
+    @apply outline-4 outline-blue-400 outline;
+  }
 }
