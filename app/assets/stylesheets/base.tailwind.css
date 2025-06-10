@@ -8,7 +8,7 @@
 
   [data-theme='sapphire'] {
     --theme-main: var(--color-blue-900);
-    --primary-bg: #DFE2DC;
+    --primary-bg: var(--color-slate-50);
     --secondary-bg: #E6E9E1;
     --btn-bg: var(--color-blue-100);
   }
@@ -35,10 +35,6 @@
 ::backdrop,
 ::file-selector-button {
   border-color: var(--color-gray-200, currentColor);
-}
-
-body {
-  @apply bg-(--primary-bg);
 }
 
 * {

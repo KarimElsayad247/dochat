@@ -1,5 +1,5 @@
 :root {
-  --sidebar-animation-duration: 200ms;
+  --sidebar-animation-duration: 150ms;
 }
 
 header {
@@ -8,10 +8,19 @@ header {
   width: 100%;
   gap: 1rem;
   height: var(--header-height);
-  background-color: var(--theme-main-color);
+  background-color: var(--theme-main);
+}
+
+
+main {
+  @apply flex flex-col w-full bg-(--primary-bg) rounded-tl-md
+  dark:bg-slate-900 dark:text-gray-200;
+  justify-content: start;
+  overflow-y: auto;
 }
 
 .main-split {
+  background-color: var(--theme-main);
   display: flex;
   position: fixed;
   top: var(--header-height);
@@ -21,17 +30,17 @@ header {
 }
 
 .super-sidebar {
-  @apply transition-all text-white pl-1 pr-2;
+  @apply transition-all text-white pl-1.5 pr-1 rounded-br-md;
   transition-duration: var(--sidebar-animation-duration);
-  background-color: var(--theme-main-color);
+  background-color: var(--theme-main);
   display: flex;
   flex-direction: column;
   align-items: start;
-  height: auto;
+  height: 100%;
   position: relative;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
+  top: 0;
+  left: 0;
+  bottom: 0;
   overflow-y: auto;
   overflow-x: hidden;
   width: 16rem;
@@ -41,11 +50,12 @@ header {
   }
 
   .sidebar-element > a > .icon-button {
-    @apply pl-2 pr-1 py-2 flex items-center w-full;
+    @apply px-2 py-2 flex items-center w-full;
     transition: padding var(--sidebar-animation-duration) ease-out;
   }
 
   .sidebar-element > a > .icon-button > p {
+    @apply ml-2;
     opacity: 1;
     transition: opacity var(--sidebar-animation-duration) ease-out;
   }
@@ -58,7 +68,6 @@ header {
   }
 
   &[data-expanded="false"] {
-    padding-right: 0;
     width: 3.3rem;
 
     /* Hide text when sidebar is collapsed,
@@ -70,19 +79,16 @@ header {
       @apply w-fit;
     }
     .sidebar-element > a > .icon-button {
-      @apply px-1;
+      @apply px-2 justify-center;
     }
 
     .sidebar-element > a > .icon-button > svg {
-      width: 2rem;
-      min-width: 2rem;
+      width: 1.5rem;
+      min-width: 1.5rem;
     }
   }
-}
 
-main {
-  @apply flex flex-col w-full bg-slate-50 rounded-tl-md
-  dark:bg-slate-900 dark:text-gray-200;
-  justify-content: start;
-  overflow-y: auto;
+  &[data-expanded="true"] {
+    @apply pr-2;
+  }
 }

@@ -29,10 +29,12 @@
 
   </head>
 
-  <body data-turbo-prefetch="false" data-theme="sapphire" class="bg-(--theme-main)">
+  <body data-turbo-prefetch="false" data-theme="sapphire">
     <%= render "layouts/header" %>
     <div class="main-split">
-      <%= render "layouts/sidebar/sidebar" %>
+      <div class="bg-(--primary-bg)">
+        <%= render "layouts/sidebar/sidebar" %>
+      </div>
       <main>
         <%= render "layouts/flash" %>
         <%= yield %>
