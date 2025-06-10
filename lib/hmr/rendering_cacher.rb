@@ -8,7 +8,7 @@ class RenderingCacher
   attr_reader :payloads, :transaction_id, :session_info, :controller, :env
 
   def initialize(opts = {})
-    @persist_to_disk = opts[:persist_to_disk] || false
+    @persist_to_disk = opts[:persist_to_disk] || false if opts
 
     init_class_attributes
     clear_payloads_on_new_request
