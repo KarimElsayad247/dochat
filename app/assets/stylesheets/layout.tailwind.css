@@ -1,5 +1,5 @@
 :root {
-  --sidebar-animation-duration: 150ms;
+  --sidebar-animation-duration: 250ms;
 }
 
 header {
@@ -54,6 +54,7 @@ main {
   .sidebar-element > a > .icon-button {
     @apply px-2 py-2 flex items-center w-full;
     transition: padding var(--sidebar-animation-duration) ease-out;
+    overflow: clip;
 
     &.active {
       background-color: var(--theme-highlight);
@@ -79,13 +80,13 @@ main {
     /* Hide text when sidebar is collapsed,
      * only showing icons */
     .sidebar-element > a > .icon-button > p {
-      display: none;
+      opacity: 0;
     }
     .sidebar-element {
-      @apply w-fit;
+      @apply w-full;
     }
     .sidebar-element > a > .icon-button {
-      @apply px-2 justify-center;
+      @apply px-2 justify-start;
     }
 
     .sidebar-element > a > .icon-button > svg {
