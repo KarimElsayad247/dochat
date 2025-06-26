@@ -11,7 +11,7 @@ export default class extends Controller {
     const sidebar = document.getElementById("super-sidebar");
     const newState = sidebar.dataset.expanded === "true" ? "false" : "true";
     sidebar.dataset.expanded = newState;
-    document.cookie = `sidebar_expanded=${newState}`;
-    console.log(document.cookie);
+    // document.cookie = `sidebar_expanded=${newState}`;
+    // console.log(document.cookie);
   }
 }
