@@ -1,9 +1,10 @@
 .icon-button {
   @apply transition-colors bg-transparent rounded-md cursor-pointer;
+  color: var(--text-main);
   transition-duration: 150ms;
 
   &.dark:hover {
-    @apply bg-white/10;
+    background-color: var(--theme-highlight);
   }
 
   &.light {
@@ -20,7 +21,7 @@
       py-2
       px-6
       bg-(--btn-bg) dark:bg-(--theme-main)
-      text-(--theme-main) dark:text-(--btn-bg)
+      text-(--text-main) dark:text-(--btn-bg)
       inline-block
       font-medium
       cursor-pointer
@@ -30,8 +31,18 @@
 
   &:hover {
     @apply
-      bg-(--theme-main) dark:bg-(--btn-bg)
+      bg-(--text-main) dark:bg-(--btn-bg)
      text-white dark:text-(--theme-main);
+  }
+
+  &.danger {
+    @apply bg-(--color-danger-bg) text-(--color-danger-text);
+
+    &:hover {
+      @apply
+      bg-(--color-danger-text) dark:bg-(--color-danger-text)
+      text-white dark:text-(--color-danger-bg);
+    }
   }
 }
 
@@ -43,7 +54,7 @@ input, textarea{
   @apply py-2
     px-3
     mb-5
-    border-2
+    border-1
     font-medium
     rounded-lg
     block

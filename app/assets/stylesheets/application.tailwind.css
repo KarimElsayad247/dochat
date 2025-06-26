@@ -16,6 +16,17 @@
 @theme {
   --font-sans: Montserrat, Inter var, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
   'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --color-theme-main: var(--theme-main);
+  --color-primary-bg: var(--primary-bg);
+  --color-secondary-bg: var(--secondary-bg);
+  --color-btn-bg: var(--btn-bg);
+  --color-text-main: var(--text-main);
+  --color-theme-highlight: var(--theme-highlight);
+  --color-border-grey: var(--border-grey);
+  --color-focus: var(--color-focus);
+  --color-hover: var(--color-hover);
+  --color-danger-text: var(--color-danger-text);
+  --color-danger-bg: var(--color-danger-bg);
 }
 
 /* I wish I could put this in `base` but for some reason,
@@ -35,6 +46,10 @@ textarea {
   transition-colors;
 
   &:hover {
-    @apply outline-4 outline-blue-400 outline;
+    @apply border-hover;
+  }
+
+  &:focus, &:active {
+    @apply border-focus outline-none ring-0
   }
 }

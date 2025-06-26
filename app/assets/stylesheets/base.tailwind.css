@@ -11,6 +11,27 @@
     --primary-bg: var(--color-slate-50);
     --secondary-bg: #E6E9E1;
     --btn-bg: var(--color-blue-100);
+    &.dark {
+      --theme-main: #162E71;
+    }
+  }
+
+  [data-theme='aqua'] {
+    --theme-main:  oklch(93.2% 0.032 255.585 / 0.3);
+    --primary-bg: var(--color-slate-50);
+    --secondary-bg: #E6E9E1;
+    --btn-bg: var(--color-blue-100);
+    --text-main: var(--color-blue-900);
+    --theme-highlight: color-mix(in oklch, var(--theme-main) 0%, var(--color-blue-300) 20%);
+    --border-grey: color-mix(in oklch, var(--theme-main) 100%, grey 20%);
+    --color-focus: var(--color-blue-600);
+    --color-hover: var(--color-blue-400);
+    --color-danger-text: var(--color-red-600);
+    --color-danger-bg: var(--color-red-50);
+
+    &.dark {
+      --theme-main: #162E71;
+    }
   }
 
   [data-theme='leaf-light'] {

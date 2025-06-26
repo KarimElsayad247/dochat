@@ -9,6 +9,7 @@ header {
   gap: 1rem;
   height: var(--header-height);
   background-color: var(--theme-main);
+  border-bottom: 1px solid var(--border-grey);
 }
 
 
@@ -20,7 +21,6 @@ main {
 }
 
 .main-split {
-  background-color: var(--theme-main);
   display: flex;
   position: fixed;
   top: var(--header-height);
@@ -33,6 +33,7 @@ main {
   @apply transition-all text-white pl-1.5 pr-1 rounded-br-md;
   transition-duration: var(--sidebar-animation-duration);
   background-color: var(--theme-main);
+  color: var(--text-main);
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -44,6 +45,7 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
   width: 16rem;
+  border-right: 1px solid var(--border-grey);
 
   .sidebar-element {
     @apply w-full mt-2;
@@ -52,6 +54,10 @@ main {
   .sidebar-element > a > .icon-button {
     @apply px-2 py-2 flex items-center w-full;
     transition: padding var(--sidebar-animation-duration) ease-out;
+
+    &.active {
+      background-color: var(--theme-highlight);
+    }
   }
 
   .sidebar-element > a > .icon-button > p {
