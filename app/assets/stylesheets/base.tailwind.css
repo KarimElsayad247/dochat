@@ -1,46 +1,8 @@
-:root {
-  --header-height: 3rem;
-  --theme-main: var(--color-blue-900);
-  --primary-bg: #000;
-  --secondary-bg: #000;
-  --btn-bg: #000;
-  font-size: 18px;
-
-  [data-theme='sapphire'] {
-    --theme-main: var(--color-blue-900);
-    --primary-bg: var(--color-slate-50);
-    --secondary-bg: #E6E9E1;
-    --btn-bg: var(--color-blue-100);
-    &.dark {
-      --theme-main: #162E71;
-    }
-  }
-
-  [data-theme='aqua'] {
-    --theme-main:  oklch(93.2% 0.032 255.585 / 0.3);
-    --primary-bg: var(--color-slate-50);
-    --secondary-bg: #E6E9E1;
-    --btn-bg: var(--color-blue-100);
-    --text-main: var(--color-blue-900);
-    --theme-highlight: color-mix(in oklch, var(--theme-main) 0%, var(--color-blue-300) 20%);
-    --border-grey: color-mix(in oklch, var(--theme-main) 100%, grey 20%);
-    --color-focus: var(--color-blue-600);
-    --color-hover: var(--color-blue-400);
-    --color-danger-text: var(--color-red-600);
-    --color-danger-bg: var(--color-red-50);
-
-    &.dark {
-      --theme-main: #162E71;
-    }
-  }
-
-  [data-theme='leaf-light'] {
-    --theme-main: #709b79;
-    --primary-bg: #DFE2DC;
-    --secondary-bg: #E6E9E1;
-    --btn-bg: var(--color-green-100);
-  }
-}
+/* Base Layer
+ * The Base layer should provide consistency. It should not target specific
+ * classes, rather, it should provide "base" styling that other utilities
+ * or components can then override.
+ */
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,

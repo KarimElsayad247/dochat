@@ -1,20 +1,22 @@
-<div class="container-card border-card">
-  <h2>Login and verification</h2>
+<div class="px-2">
+  <div class="container-card border-card">
+    <h2>Login and verification</h2>
 
-  <ul>
-    <li>
-      <%= link_to "Change password", edit_password_path %>
-    </li>
-    <li>
-      <%= link_to "Change email address", edit_identity_email_path %>
-    </li>
-  </ul>
-  <ul>
-    <h2>Access history</h2>
-    <li>
-      <%= link_to "Devices & Sessions", sessions_path %>
-    </li>
-  </ul>
+    <ul>
+      <li>
+        <%= link_to "Change password", edit_password_path %>
+      </li>
+      <li>
+        <%= link_to "Change email address", edit_identity_email_path %>
+      </li>
+    </ul>
+    <ul>
+      <h2>Access history</h2>
+      <li>
+        <%= link_to "Devices & Sessions", sessions_path %>
+      </li>
+    </ul>
 
-  <%= button_to "Log out", Current.session, method: :delete, class: "btn-primary danger" %>
+    <%= button_to "Log out", Current.session, method: :delete, class: "btn-primary danger" %>
+  </div>
 </div>

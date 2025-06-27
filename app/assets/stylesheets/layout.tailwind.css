@@ -3,18 +3,17 @@
 }
 
 header {
-  @apply text-white pl-1 pr-2;
+  @apply text-white pl-1 pr-2 bg-theme-main;
   display: flex;
   width: 100%;
   gap: 1rem;
   height: var(--header-height);
-  background-color: var(--theme-main);
   border-bottom: 1px solid var(--border-grey);
 }
 
 
 main {
-  @apply flex flex-col w-full bg-(--primary-bg) rounded-tl-md
+  @apply flex flex-col w-full bg-(--primary-bg)
   dark:bg-slate-900 dark:text-gray-200;
   justify-content: start;
   overflow-y: auto;
@@ -33,7 +32,7 @@ main {
   @apply transition-all text-white pl-1.5 pr-1 rounded-br-md;
   transition-duration: var(--sidebar-animation-duration);
   background-color: var(--theme-main);
-  color: var(--text-main);
+  color: var(--main-text);
   display: flex;
   flex-direction: column;
   align-items: start;
