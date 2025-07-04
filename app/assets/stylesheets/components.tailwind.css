@@ -20,8 +20,8 @@
   @apply rounded-md
       py-2
       px-6
-      bg-btn-bg dark:bg-theme-main
-      text-main-text dark:text-btn-bg
+      bg-btn-bg
+      text-main-text
       inline-block
       font-medium
       cursor-pointer
@@ -31,8 +31,7 @@
 
   &:hover {
     @apply
-      bg-main-text dark:bg-btn-bg
-     text-white dark:text-theme-main;
+      bg-main-text  text-white;
   }
 
   &.danger {

@@ -11,12 +11,14 @@ header {
   border-bottom: 1px solid var(--border-grey);
 }
 
-
 main {
-  @apply flex flex-col w-full bg-(--primary-bg)
-  dark:bg-slate-900 dark:text-gray-200;
+  @apply flex flex-col w-full bg-(--primary-bg);
   justify-content: start;
   overflow-y: auto;
+}
+
+#main-content {
+  @apply flex flex-grow flex-col;
 }
 
 .main-split {
@@ -29,7 +31,7 @@ main {
 }
 
 .super-sidebar {
-  @apply transition-all text-white pl-1.5 pr-1 rounded-br-md;
+  @apply transition-all text-white pl-1.5 pr-1;
   transition-duration: var(--sidebar-animation-duration);
   background-color: var(--theme-main);
   color: var(--main-text);
@@ -52,8 +54,11 @@ main {
 
   .sidebar-element > a > .icon-button {
     @apply px-2 py-2 flex items-center w-full;
-    transition: padding var(--sidebar-animation-duration) ease-out;
+    transition:
+      padding var(--sidebar-animation-duration) ease-out,
+      background-color 200ms var(--default-transition-timing-function);
     overflow: clip;
+
 
     &.active {
       background-color: var(--theme-highlight);

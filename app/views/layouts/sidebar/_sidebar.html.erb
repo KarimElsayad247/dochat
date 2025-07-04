@@ -1,19 +1,33 @@
-<nav id="super-sidebar" class="super-sidebar" data-expanded="false">
+<nav
+  id="super-sidebar"
+  class="super-sidebar"
+  data-expanded="false"
+  data-turbo-permanent="true"
+  data-controller="sidebar"
+  data-sidebar-target="sidebar"
+  data-action="
+    turbo:visit@document->sidebar#toggleActiveLink
+    turbo:load@document->sidebar#focusActiveLink
+  "
+>
   <ul class="w-full">
     <%= render partial: "layouts/sidebar/sidebar_element",
     locals: {
+      target: "chat",
       icon: "chat",
       text: "Chat",
       path: chats_path,
     } %>
     <%= render partial: "layouts/sidebar/sidebar_element",
     locals: {
+      target: "forum",
       icon: "forum",
       text: "Forum",
       path: forum_posts_path,
     } %>
     <%= render partial: "layouts/sidebar/sidebar_element",
     locals: {
+      target: "docs",
       icon: "book",
       text: "Documentation",
       path: docs_path,

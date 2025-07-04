@@ -1,17 +1,40 @@
 import { Controller } from "@hotwired/stimulus";
 
-// Connects to data-controller="sidebar"
 export default class extends Controller {
+  static targets = ["sidebar", "chat", "forum", "docs"];
+  activeClass = "active";
+  sidebarEntries = [];
+
   connect() {
-    const sidebar = document.getElementById("super-sidebar");
-    // sidebar.dataset.expanded = document.cookie["sidebar_expanded"];
+    this.sidebarEntries = [
+      this.chatTarget,
+      this.forumTarget,
+      this.docsTarget,
+    ]
+    document.addEventListener("turbo:visit", (event) => {
+      console.log("visit");
+      console.log(event);
+    });
+
   }
 
-  toggle(e) {
-    const sidebar = document.getElementById("super-sidebar");
-    const newState = sidebar.dataset.expanded === "true" ? "false" : "true";
-    sidebar.dataset.expanded = newState;
-    // document.cookie = `sidebar_expanded=${newState}`;
-    // console.log(document.cookie);
+  toggleActiveLink(event) {
+    this.sidebarEntries.forEach((entry) => {
+      entry.querySelector(".icon-button").classList.remove(this.activeClass)
+    })
+    this.sidebarEntries.forEach((entry) => {
+      if (entry.pathname.startsWith(URL.parse(event.detail.url).pathname)) {
+        entry.querySelector(".icon-button").classList.add(this.activeClass);
+      }
+    })
+
+  }
+
+  focusActiveLink(_event) {
+    this.sidebarEntries.forEach((entry) => {
+      if (entry.pathname.startsWith(document.location.pathname)) {
+        entry.querySelector(".icon-button").classList.add(this.activeClass);
+      }
+    })
   }
 }

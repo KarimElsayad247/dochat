@@ -22,6 +22,10 @@
 
 * {
   font-family: "Montserrat", Inconsolata, monospace;
+  transition: color 200ms ease-in-out,
+      background-color 200ms ease-in-out,
+      border 200ms ease-in-out;
+
 }
 
 h1 {

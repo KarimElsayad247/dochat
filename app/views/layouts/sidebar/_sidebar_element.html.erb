@@ -1,6 +1,6 @@
 <li class="sidebar-element">
-  <%= link_to path, title: "Link to #{text}" do %>
-    <div class="icon-button dark <%= "active" if request.path.starts_with? path %>">
+  <%= link_to path, title: "Link to #{text}", data: { sidebar_target: target } do %>
+    <div class="icon-button dark">
       <%= inline_svg_tag "#{icon}.svg", class: "inline-block" %>
       <p><%= text %></p>
     </div>

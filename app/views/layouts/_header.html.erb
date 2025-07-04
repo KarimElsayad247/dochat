@@ -1,22 +1,23 @@
 <header
   data-turbo-permanent class="flex justify-between">
-  <div class="menu-button py-[5px]">
+  <div class="py-[4px]">
     <button
       id="toggle-sidebar-button"
       title="sidebar toggle"
       type="button"
       class="icon-button dark px-2 py-[4px] h-full"
-      data-controller="sidebar"
-      data-action="click->sidebar#toggle"
+      data-controller="sidebar-toggle"
+      data-action="click->sidebar-toggle#toggle"
     >
       <%= inline_svg_tag "bars.svg", class: "h-full max-w-6" %>
     </button>
   </div>
-  <div class="justify-self-end self-center">
-    <% if Current.user %>
-      <%= link_to Current.user.email,
-                  identity_account_path,
-                  class: "icon-button dark px-4 py-2" %>
-    <% end %>
+  <div class="h-full flex items-center">
+      <% if Current.user %>
+        <%= link_to Current.user.email,
+                    identity_account_path,
+                    class: "icon-button dark px-4 py-2" %>
+      <% end %>
+    <%= render "shared/dark_mode_toggle" %>
   </div>
 </header>

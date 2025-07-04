@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :set_current_request_details
   before_action :authenticate
 
+  layout "application"
+
   def authenticate
     if (session_record = Session.find_by(id: cookies.signed[:session_token]))
       Current.session = session_record

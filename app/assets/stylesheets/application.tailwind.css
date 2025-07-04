@@ -13,6 +13,8 @@
 @source './**/*.css';
 @source '../../views/**/*';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --font-sans: Montserrat, Inter var, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
   'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -48,24 +50,20 @@
 
   [data-theme='sapphire'] {
     --theme-main: var(--color-blue-900);
-    --primary-bg: var(--color-slate-50);
-    --secondary-bg: #E6E9E1;
-    --btn-bg: var(--color-blue-100);
-    --main-text: var(--color-blue-900);
-    --theme-highlight: var(--color-blue-900);
-    --border-grey: var(--color-blue-900);
-    --color-focus: var(--color-blue-900);
-    --color-hover: var(--color-blue-900);
-    --color-danger-text: var(--color-blue-900);
-    --color-danger-bg: var(--color-blue-900);
-    &.dark {
-      --theme-main: #162E71;
-    }
+    --primary-bg: var(--color-slate-900);
+    --secondary-bg: color-mix(in oklch, var(--primary-bg) 100%, var(--color-gray-300) 50%);
+    --theme-highlight: color-mix(in oklch, var(--theme-main) 60%, var(--color-gray-500) 10%);
+    --btn-bg: color-mix(in oklch, var(--theme-highlight) 100%, var(--color-blue-300) 10%);
+    --main-text: white;
+    --border-grey: color-mix(in oklch, var(--theme-main) 100%, grey 20%);
+    --color-focus: var(--color-blue-600);
+    --color-hover: var(--color-blue-400);
+    --color-danger-text: var(--color-red-600);
+    --color-danger-bg: var(--color-red-100);
   }
 
   [data-theme='aqua'] {
     --theme-main:  oklch(83.2% 0.032 255.585 / 0.3);
-    /*--primary-bg: #FEFEFE;*/
     --primary-bg: oklch(98.86% 0.0026 286.35);
     --secondary-bg: color-mix(in oklch, var(--primary-bg) 100%, var(--color-gray-300) 50%);
     --theme-highlight: color-mix(in oklch, var(--theme-main) 60%, var(--color-gray-500) 10%);
@@ -76,10 +74,6 @@
     --color-hover: var(--color-blue-400);
     --color-danger-text: var(--color-red-600);
     --color-danger-bg: var(--color-red-100);
-
-    &.dark {
-      --theme-main: #162E71;
-    }
   }
 
   [data-theme='leaf-light'] {

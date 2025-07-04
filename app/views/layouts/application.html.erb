@@ -35,10 +35,13 @@
       <div>
         <%= render "layouts/sidebar/sidebar" %>
       </div>
-      <main>
-        <%= render "layouts/flash" %>
-        <%= yield %>
-      </main>
+        <main>
+      <%= turbo_frame_tag "main-content" do %>
+
+          <%= render "layouts/flash" %>
+          <%= yield %>
+      <% end %>
+        </main>
     </div>
 
   </body>
