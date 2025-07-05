@@ -1,19 +1,26 @@
-// To see this message, add the following to the `<head>` section in your
-// views/layouts/application.html.erb
-//
-//    <%= vite_client_tag %>
-//    <%= vite_javascript_tag 'application' %>
-
+// Make sure this is in application layout
+// <%= vite_client_tag %>
+// <%= vite_javascript_tag 'application' %>
 console.log("Vite ⚡️ Rails");
 
 import "../controllers";
 import "@hotwired/turbo-rails";
 import { hmrImportChannels } from "~/hmr/channel_hmr.js";
 import ShortcutsManager from "@/shortcuts/shortcuts_manager.js";
+import { Idiomorph } from "idiomorph"
 
 const shortcutsManager = ShortcutsManager();
 shortcutsManager.setup();
 window.shortcutsManager = shortcutsManager;
+
+
+const morphPageUpdates = (event) => {
+  event.detail.render = (currentElement, newElement) => {
+    Idiomorph.morph(currentElement, newElement)
+  }
+}
+
+document.addEventListener("turbo:before-render", morphPageUpdates)
 
 // Import all channels.
 const channels = hmrImportChannels(
@@ -35,5 +42,7 @@ if (import.meta.hot) {
 
     window.shortcutsManager.dispose();
     window.shortcutsManager = null;
+
+    document.removeEventListener("turbo:before-render", morphPageUpdates)
   });
 }

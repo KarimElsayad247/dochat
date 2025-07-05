@@ -12,7 +12,7 @@ header {
 }
 
 main {
-  @apply flex flex-col w-full bg-(--primary-bg);
+  @apply flex flex-col w-full bg-(--primary-bg) pt-2 px-2;
   justify-content: start;
   overflow-y: auto;
 }
@@ -59,9 +59,8 @@ main {
       background-color 200ms var(--default-transition-timing-function);
     overflow: clip;
 
-
     &.active {
-      background-color: var(--theme-highlight);
+      background-color: var(--theme-highlight-active);
     }
   }
 

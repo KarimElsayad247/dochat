@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "@avo-hq/marksmith": "^0.4.5",
-    "@rails/actioncable": "^8.0.200"
+    "@rails/actioncable": "^8.0.200",
+    "idiomorph": "^0.7.3",
+    "js-cookie": "^3.0.5"
   }
 }

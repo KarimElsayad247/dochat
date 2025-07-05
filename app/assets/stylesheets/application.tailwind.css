@@ -24,6 +24,7 @@
   --color-btn-bg: var(--btn-bg);
   --color-main-text: var(--main-text);
   --color-theme-highlight: var(--theme-highlight);
+  --color-theme-highlight-active: var(--theme-highlight-active);
   --color-border-grey: var(--border-grey);
   --color-focus: var(--color-focus);
   --color-hover: var(--color-hover);
@@ -53,6 +54,7 @@
     --primary-bg: var(--color-slate-900);
     --secondary-bg: color-mix(in oklch, var(--primary-bg) 100%, var(--color-gray-300) 50%);
     --theme-highlight: color-mix(in oklch, var(--theme-main) 60%, var(--color-gray-500) 10%);
+    --theme-highlight-active: color-mix(in oklch, var(--theme-main) 70%, var(--color-gray-300) 10%);
     --btn-bg: color-mix(in oklch, var(--theme-highlight) 100%, var(--color-blue-300) 10%);
     --main-text: white;
     --border-grey: color-mix(in oklch, var(--theme-main) 100%, grey 20%);
@@ -67,6 +69,7 @@
     --primary-bg: oklch(98.86% 0.0026 286.35);
     --secondary-bg: color-mix(in oklch, var(--primary-bg) 100%, var(--color-gray-300) 50%);
     --theme-highlight: color-mix(in oklch, var(--theme-main) 60%, var(--color-gray-500) 10%);
+    --theme-highlight-active: color-mix(in oklch, var(--theme-main) 70%, var(--color-blue-200) 20%);
     --btn-bg: color-mix(in oklch, var(--theme-highlight) 100%, var(--color-blue-300) 10%);
     --main-text: var(--color-blue-900);
     --border-grey: color-mix(in oklch, var(--theme-main) 100%, grey 20%);

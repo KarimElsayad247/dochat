@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
+import Cookies from "js-cookie";
 
 // Connects to data-controller="sidebar"
 export default class extends Controller {
@@ -11,7 +12,7 @@ export default class extends Controller {
     const sidebar = document.getElementById("super-sidebar");
     const newState = sidebar.dataset.expanded === "true" ? "false" : "true";
     sidebar.dataset.expanded = newState;
-    // document.cookie = `sidebar_expanded=${newState}`;
-    // console.log(document.cookie);
+    Cookies.set("sidebar_expanded", newState);
+    console.log(Cookies.get("sidebar_expanded"));
   }
 }

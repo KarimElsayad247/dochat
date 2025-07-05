@@ -6,16 +6,22 @@ export default class extends Controller {
   sidebarEntries = [];
 
   connect() {
+    if (document.documentElement.hasAttribute('data-turbo-preview')) {
+      return;
+    }
+
+    console.log("connected");
     this.sidebarEntries = [
       this.chatTarget,
       this.forumTarget,
       this.docsTarget,
     ]
-    document.addEventListener("turbo:visit", (event) => {
-      console.log("visit");
-      console.log(event);
-    });
 
+  }
+
+  disconnect() {
+    console.log("disconnected");
+    console.log("will connect again soon");
   }
 
   toggleActiveLink(event) {

@@ -1,14 +1,10 @@
 <nav
   id="super-sidebar"
   class="super-sidebar"
-  data-expanded="false"
-  data-turbo-permanent="true"
+  data-expanded=<%= cookies[:sidebar_expanded] || false %>
   data-controller="sidebar"
   data-sidebar-target="sidebar"
-  data-action="
-    turbo:visit@document->sidebar#toggleActiveLink
-    turbo:load@document->sidebar#focusActiveLink
-  "
+  data-action="turbo:visit@document->sidebar#toggleActiveLink turbo:load@document->sidebar#focusActiveLink"
 >
   <ul class="w-full">
     <%= render partial: "layouts/sidebar/sidebar_element",
