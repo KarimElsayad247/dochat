@@ -1,0 +1,14 @@
+<% content_for :content do %>
+  <%= render "layouts/header" %>
+  <div class="main-split">
+    <div>
+      <%= render "layouts/sidebar/sidebar" %>
+    </div>
+    <main>
+      <%= render "layouts/flash" %>
+      <%= yield %>
+    </main>
+  </div>
+<% end %>
+
+<%= render template: "layouts/application" %>

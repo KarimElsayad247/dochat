@@ -32,16 +32,6 @@
   </head>
 
   <body data-turbo-prefetch="false" data-theme="aqua">
-    <%= render "layouts/header" %>
-    <div class="main-split">
-      <div>
-        <%= render "layouts/sidebar/sidebar" %>
-      </div>
-        <main>
-          <%= render "layouts/flash" %>
-          <%= yield %>
-        </main>
-    </div>
-
+    <%= content_for?(:content) ? yield(:content) : yield %>
   </body>
 </html>

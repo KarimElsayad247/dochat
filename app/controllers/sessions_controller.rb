@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate, only: %i[ new create ]
+  layout "signed_out"
 
   def index
     @sessions = Current.user.sessions.order(created_at: :desc)

@@ -1,5 +1,6 @@
 class RegistrationsController < ApplicationController
   skip_before_action :authenticate
+  layout "signed_out"
 
   def new
     @user = User.new
